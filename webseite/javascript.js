@@ -8,8 +8,12 @@ function type() {
     if (index < text.length) {
         document.getElementById("chatgpt-type-effect").innerHTML += text.charAt(index);
         index++;
-        setTimeout(type, 50);
+        setTimeout(type, getRandomInt(100));
     }
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
 }
 
 const startButton = document.getElementById('start-typing');
@@ -17,3 +21,8 @@ startButton.addEventListener('click', () => {
     document.getElementById("chatgpt-type-effect").innerHTML = "";
     type();
 });
+
+function toggleMode() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+}
